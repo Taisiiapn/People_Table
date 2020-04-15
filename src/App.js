@@ -23,18 +23,19 @@ class App extends React.Component {
 
   getSortedPeople = (people, sortBy, inputValue) => {
     const preparedInputValue = inputValue.toLowerCase();
-
     return [...people]
-      .filter(person => person.name.toLowerCase().includes(preparedInputValue))
-      // .sort((a, b) => console.log(a[sortBy], b[sortBy]) )
+
+      .filter(person => person.name.toLowerCase().includes(preparedInputValue)
+      || person.mother.toLowerCase().includes(preparedInputValue)
+      || person.father.toLowerCase().includes(preparedInputValue)
+      || person.children.toLowerCase().includes(preparedInputValue))
+
       .sort((a, b) => {
         switch (typeof a[sortBy]) {
           case 'string':
-            // return a[sortBy].localeCompare(b[sortBy]);
-            return b[sortBy] - a[sortBy];
+            return a[sortBy].localeCompare(b[sortBy]);
 
-          case 'number':
-          case 'boolean':
+          case 'boolean' && 'number':
             return a[sortBy] - b[sortBy];
 
           default:
@@ -44,9 +45,9 @@ class App extends React.Component {
   }
 
   sortingFunc = (sortBy) => {
-    this.setState(({ inputValue }) => ({
-      sortBy,
-      visiblePeople: this.getSortedPeople(this.people, sortBy, inputValue)
+    this.setState(() => ({
+      sortedField: sortBy,
+      visiblePeople: this.getSortedPeople(this.people, sortBy, this.state.inputValue)
     }));
   }
 

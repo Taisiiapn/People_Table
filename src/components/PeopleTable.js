@@ -1,30 +1,28 @@
 import React from 'react';
 import { Person } from './Person';
 
-
-
 export class PeopleTable extends React.Component {
 
   render() {
-  const { people,
-          sortingFunc,
-          selectedPersonId,
-          onChangeSelectedPersonId } = this.props;
+    const { people,
+            sortingFunc,
+            selectedPersonId,
+            onChangeSelectedPersonId } = this.props;
 
     return (
       <table className="PeopleTable">
         <thead>
           <tr>
-            <th onClick={() => sortingFunc('id')}>Id</th>
-            <th onClick={() => sortingFunc('name')}>Name</th>
-            <th onClick={() => sortingFunc('sex')}>Sex</th>
-            <th onClick={() => sortingFunc('age')}>Age</th>
-            <th onClick={() => sortingFunc('born')}>Born</th>
-            <th onClick={() => sortingFunc('died')}>Died</th>
-            <th>Mother</th>
-            <th>Father</th>
-            <th>Century</th>
-            <th>Children</th>
+            <th><button onClick={() => sortingFunc('id')}>Id</button></th>
+            <th><button onClick={() => sortingFunc('name')}>Name</button></th>
+            <th><button onClick={() => sortingFunc('sex')}>Sex</button></th>
+            <th><button onClick={() => sortingFunc('age')}>Age</button></th>
+            <th><button onClick={() => sortingFunc('born')}>Born</button></th>
+            <th><button onClick={() => sortingFunc('died')}>Died</button></th>
+            <th><button onClick={() => sortingFunc('mother')}>Mother</button></th>
+            <th><button onClick={() => sortingFunc('father')}>Father</button></th>
+            <th><button onClick={() => sortingFunc('century')}>Century</button></th>
+            <th><button onClick={() => sortingFunc('children')}>Children</button></th>
           </tr>
         </thead>
 

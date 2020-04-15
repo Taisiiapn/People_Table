@@ -25,6 +25,14 @@ tr, td, th {
   text-align: center;
 }
 
+button {
+  background-color: #fff;
+  border: none;
+  width: 100%;
+  font-weight: 780;
+  cursor: pointer;
+}
+
 .Person {
   cursor: pointer;
 }
@@ -56,4 +64,3 @@ tr, td, th {
 .PeopleTable__ageOver65 {
   color: rgb(99, 6, 102);
 }
-
